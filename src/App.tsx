@@ -3,22 +3,36 @@ import './styles/App.scss';
 import CatalogList from './components/CatalogList/CatalogList';
 import type { ApiBook } from './types/book';
 import { fetchBooks } from './api/book';
+import{ BeatLoader} from 'react-spinners';
+
+
 
 function App() {
   const [books, setBooks] = useState<ApiBook[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
     async function loadBooks() {
-      const res = await fetchBooks('javascript', 1);
-      console.log(res);
-
-      setBooks(res.books);
+      try {
+        setLoading(true);
+        setError(null);
+        const res = await fetchBooks('javascript', 1);
+        setBooks(res.books);
+      } catch (error: any) {
+        setError(error?.message || 'Failed to load books');
+      } finally {
+        setLoading(false);
+      }
     }
     loadBooks();
   }, []);
 
   return (
     <>
-      <CatalogList books={books} />
+      {loading && <BeatLoader/>}
+      {error && <p className="error">{error}</p>}
+     <CatalogList books={books} />
     </>
   );
 }
