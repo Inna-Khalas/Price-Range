@@ -1,12 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './styles/App.scss'
+import CatalogList from './components/CatalogList/CatalogList'
+import type {ApiBook} from './types/book'
+import { fetchBooks } from './api/book'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [books, setBooks] = useState<ApiBook[]>([])
+  useEffect( ()=>{  async function loadBooks() {
+    const res = await fetchBooks("mongodb", 1);
+    setBooks(res.books); 
+  }
+  loadBooks();
+  })
 
   return (
     <>
-    <p>hello0</p>
+    <CatalogList books={books}/>
     </>
   )
 }
