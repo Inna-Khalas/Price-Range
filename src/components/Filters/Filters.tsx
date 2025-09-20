@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import s from './Filter.module.scss'
 
 type Props = {
   minLimit: number;                 
@@ -16,9 +17,9 @@ export default function PriceFilter({ minLimit, maxLimit, onApply }: Props) {
   }, [minLimit, maxLimit]);
 
   return (
-    <div className="card">
+<div className={s.filter}>
       <strong>Price filter</strong>
-      <div>
+      <div className={s.controls}>
         <input
           type="number"
           value={minVal}

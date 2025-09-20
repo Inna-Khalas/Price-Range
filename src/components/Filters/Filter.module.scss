@@ -1,0 +1,52 @@
+@use '../../styles/breakpoints' as *;
+
+.filter {
+  background: var(--card, var(--button-bg));
+  border: 1px solid var(--border, #e5e5e5);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+
+  strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .controls {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr;
+
+    @media (min-width: $md) {
+      grid-template-columns: 1fr 1fr auto;
+      align-items: center;
+    }
+
+    input {
+      padding: 8px 10px;
+      border: 1px solid var(--border, #ccc);
+      border-radius: 6px;
+      font-size: 14px;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    button {
+      background: var(--brand, #2563eb);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover {
+        background: color-mix(in srgb, var(--brand) 92%, black);
+      }
+    }
+  }
+}
