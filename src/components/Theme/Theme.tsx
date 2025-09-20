@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import s from './Theme.module.scss'
 
 function ThemeToggle() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -8,13 +9,18 @@ function ThemeToggle() {
   }, [theme]);
 
   return (
-    <label style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+    <label className={s.wrap}>
       <input
         type="checkbox"
+        className={s.input}
         checked={theme === 'dark'}
         onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
+        aria-label="Toggle dark mode"
       />
-      Dark mode
+
+      <span className={s.switch} aria-hidden="true">
+        <span className={s.thumb} />
+      </span>
     </label>
   );
 }

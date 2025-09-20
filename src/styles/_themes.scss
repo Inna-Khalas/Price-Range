@@ -1,5 +1,6 @@
 :root {
   --bg: #f9fafb;
+  --card:#fff;
   --text: #111827;
   --link: #646cff;
   --link-hover: #535bf2;
@@ -10,6 +11,7 @@
 
 [data-theme='dark'] {
   --bg: #242424;
+  --card: #333;
   --text: rgba(255, 255, 255, 0.87);
   --link: #646cff;
   --link-hover: #535bf2;
