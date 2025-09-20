@@ -1,0 +1,11 @@
+@use '../../styles/breakpoints' as *;
+
+.list {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+
+  @media (min-width: $sm) { grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: $md) { gap: 16px; grid-template-columns: repeat(3, 1fr); }
+  @media (min-width: $lg) { gap: 20px; grid-template-columns: repeat(4, 1fr); }
+}
