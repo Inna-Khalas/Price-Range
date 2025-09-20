@@ -83,10 +83,13 @@ function App() {
     <main className="container">
       {loading && <BeatLoader />}
       {error && <p className="error">{error}</p>}
-      <ThemeToggle />
 
       {!loading && !error && (
         <>
+         <div className='topline'>
+      <ThemeToggle />
+    </div>
+
           <PriceFilter
             minLimit={minLimit}
             maxLimit={maxLimit}
