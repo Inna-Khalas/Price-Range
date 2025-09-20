@@ -21,3 +21,5 @@ export type Response = {
   page: string;
   books: ApiBook[];
 };
+
+export type PriceSort = 'price_asc' | 'price_desc';

@@ -1,4 +1,4 @@
-export type PriceSort = 'price_asc' | 'price_desc';
+import type { PriceSort } from "../../types/book";
 
 type Props = {
   value: PriceSort;
